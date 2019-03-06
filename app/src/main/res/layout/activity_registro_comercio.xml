@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="10dp"
+    android:paddingRight="10dp"
+    android:paddingLeft="10dp"
+    android:paddingTop="10dp"
+    android:background="#A4FFFB "
+    tools:context=".RegistroComercioActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registro de Comercio"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        />
+
+    <EditText
+        android:id="@+id/editTextCorreoComercio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese su correo electronico"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/editTextNit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese el nit de su empresa"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/editTextRazoSocial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese la razon social de su empresa"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese su contraseña"
+        android:layout_marginTop="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        >
+
+        <EditText
+        android:id="@+id/editCentroComercial"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese el centro comerncial"
+
+        />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="+"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        >
+
+        <EditText
+            android:id="@+id/editTipoProducto"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese el tipo de producto"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="+"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        >
+
+        <EditText
+            android:id="@+id/editLocalidad"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="Pais/Departamento/pais"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="+"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/resultadoCentrosComerciales"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/resultadoTipoProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:id="@+id/resultadoLocalidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Guardar"
+        android:textSize="10dp"
+        android:textStyle="bold"
+        />
+
+
+
+
+</LinearLayout>
