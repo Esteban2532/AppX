@@ -10,6 +10,8 @@ public class IndexActiviy extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_index_activiy);
         //comentario jj
+        //comentario para otros
+        
 
     }
 }
