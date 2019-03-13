@@ -16,6 +16,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.esteban.appx.Entidades.conexionSQLiteHelper;
 import com.esteban.appx.Utilidades.Utilidades;
 
@@ -24,8 +25,8 @@ import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 public class RegistroUsuarioActivity extends AppCompatActivity {
-    EditText campoCorreo, campoNombre, campoApellido, campoValidarPassword;
-    TextInputLayout  campoPassword;
+    EditText campoCorreo, campoNombre, campoApellido;
+    TextInputLayout campoPassword;
     AutoCompleteTextView campoSugerencia;
 
     conexionSQLiteHelper conn;
@@ -36,13 +37,13 @@ public class RegistroUsuarioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_usuario);
 
-        campoCorreo = (EditText)findViewById(R.id.editTextCorreo);
-        campoNombre = (EditText)findViewById(R.id.editTextNombre);
-        campoApellido = (EditText)findViewById(R.id.editTextApellido);
+        campoCorreo = (EditText) findViewById(R.id.editTextCorreo);
+        campoNombre = (EditText) findViewById(R.id.editTextNombre);
+        campoApellido = (EditText) findViewById(R.id.editTextApellido);
         campoSugerencia = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextLocalidad);
-        campoPassword = (TextInputLayout)findViewById(R.id.editTextPassword);
+        campoPassword = (TextInputLayout) findViewById(R.id.editTextPassword);
 
-        ArrayAdapter<String> adaptador =new ArrayAdapter<> (this, android.R.layout.simple_dropdown_item_1line, Localidad);
+        ArrayAdapter<String> adaptador = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, Localidad);
         campoSugerencia.setAdapter(adaptador);
 
         conn = new conexionSQLiteHelper(getApplicationContext(), "bd_aplicacionx", null, 1);
@@ -63,20 +64,6 @@ public class RegistroUsuarioActivity extends AppCompatActivity {
             campoSugerencia.setError("El campo esta vacio");
 
         } else {
-            /*SQLiteDatabase dbase=conn.getReadableDatabase();
-            //String[] parametros = {campoCorreo.getText().toString()};
-            String[] campos = {Utilidades.CAMPO_EMAIL};
-            Cursor mcursor = dbase.query(Utilidades.TABLA_USUARIO, campos," email =?"+parametros,null,null,null,null);
-               // mcursor.moveToFirst();
-                if (mcursor.getCount()!=0) {
-                    Toast.makeText(getApplicationContext(), "El correo ya existe, no se puede registrar", Toast.LENGTH_LONG).show();
-                    borrarRegistros();
-                } else {
-                    campoCorreo.setError(null);
-                    cor = true;
-                    RegistrarUsuario();
-                    borrarRegistros();
-                }*/
 
             campoCorreo.setError(null);
             cor = true;
@@ -86,7 +73,7 @@ public class RegistroUsuarioActivity extends AppCompatActivity {
         }
     }
 
-    private void borrarRegistros(){
+    private void borrarRegistros() {
         campoCorreo.setText("");
         campoNombre.setText("");
         campoApellido.setText("");
@@ -95,22 +82,46 @@ public class RegistroUsuarioActivity extends AppCompatActivity {
 
     }
 
-    private void  RegistrarUsuario(){
-        conexionSQLiteHelper conn = new conexionSQLiteHelper(RegistroUsuarioActivity.this, "bd_aplicacionx", null,1);
-        SQLiteDatabase db = conn.getWritableDatabase();
+    private void RegistrarUsuario() {
 
-        ContentValues values = new ContentValues();
+        conexionSQLiteHelper conn = new conexionSQLiteHelper(RegistroUsuarioActivity.this, "bd_aplicacionx", null, 1);
+        SQLiteDatabase db = conn.getReadableDatabase();
 
-        values.put(Utilidades.CAMPO_EMAIL, campoCorreo.getText().toString());
-        values.put(Utilidades.CAMPO_NOMBRE,campoNombre.getText().toString());
-        values.put(Utilidades.CAMPO_APELLIDO,campoApellido.getText().toString());
-        values.put(Utilidades.CAMPO_PASSWORD,campoPassword.getEditText().getText().toString());
-        values.put(Utilidades.CAMPO_LOCALIDAD,campoSugerencia.getText().toString());
+        String[] parametros = {campoCorreo.getText().toString()};
+        String[] campos = {Utilidades.CAMPO_EMAIL};
+        Cursor mcursor = db.query("usuario", campos, "email = '" + parametros[0] + "" +
+                "'", null, null, null, null);
 
-        Long idResultante = db.insert(Utilidades.TABLA_USUARIO, Utilidades.CAMPO_EMAIL, values);
 
-        Toast.makeText(getApplicationContext(),"El usuario se registro con exito", Toast.LENGTH_LONG).show();
-        db.close();
+        try {
+
+            if (mcursor.moveToFirst()) {
+                Toast.makeText(getApplicationContext(), "No se puede guardar la informacion, el usuario ya ha sido registrado", Toast.LENGTH_LONG).show();
+
+
+            } else {
+                //SQLiteDatabase db = conn.getWritableDatabase();
+
+                ContentValues values = new ContentValues();
+
+                values.put(Utilidades.CAMPO_EMAIL, campoCorreo.getText().toString());
+                values.put(Utilidades.CAMPO_NOMBRE, campoNombre.getText().toString());
+                values.put(Utilidades.CAMPO_APELLIDO, campoApellido.getText().toString());
+                values.put(Utilidades.CAMPO_PASSWORD, campoPassword.getEditText().getText().toString());
+                values.put(Utilidades.CAMPO_LOCALIDAD, campoSugerencia.getText().toString());
+
+                Long idResultante = db.insert(Utilidades.TABLA_USUARIO, Utilidades.CAMPO_EMAIL, values);
+
+                Toast.makeText(getApplicationContext(), "El usuario se registro con exito", Toast.LENGTH_LONG).show();
+
+            }
+            db.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     public static String[] Localidad = {

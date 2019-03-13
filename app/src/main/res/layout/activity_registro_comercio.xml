@@ -4,115 +4,120 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#A4FFFB "
     android:orientation="vertical"
-    android:paddingBottom="10dp"
-    android:paddingRight="10dp"
     android:paddingLeft="10dp"
     android:paddingTop="10dp"
-    android:background="#A4FFFB "
+    android:paddingRight="10dp"
+    android:paddingBottom="10dp"
     tools:context=".RegistroComercioActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="Registro de Comercio"
         android:textSize="30dp"
-        android:textStyle="bold"
-        android:gravity="center"
-        />
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/editTextCorreoComercio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ingrese su correo electronico"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:hint="Ingrese su correo electronico" />
 
     <EditText
         android:id="@+id/editTextNit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ingrese el nit de su empresa"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:hint="Ingrese el nit de su empresa" />
 
     <EditText
         android:id="@+id/editTextRazoSocial"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ingrese la razon social de su empresa"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:hint="Ingrese la razon social de su empresa" />
 
-    <EditText
+    <android.support.design.widget.TextInputLayout
         android:id="@+id/editTextPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ingrese su contraseña"
-        android:layout_marginTop="10dp"/>
+        app:passwordToggleEnabled="true">
+
+        <EditText
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Ingrese su contraseña"
+            android:inputType="textPassword" />
+
+    </android.support.design.widget.TextInputLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginTop="10dp"
-        >
+        android:orientation="horizontal">
 
-        <EditText
-        android:id="@+id/editCentroComercial"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="Ingrese el centro comerncial"
+        <AutoCompleteTextView
+            android:id="@+id/editCentroComercial"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese el centro comerncial"
 
-        />
+            />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="+"
-            />
+            android:text="+" />
     </LinearLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginTop="10dp"
-        >
+        android:orientation="horizontal">
 
-        <EditText
+        <AutoCompleteTextView
             android:id="@+id/editTipoProducto"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:hint="Ingrese el tipo de producto"
-            />
+            android:hint="Ingrese el tipo de producto" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="+"
-            />
+            android:text="+" />
     </LinearLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginTop="10dp"
-        >
+        android:orientation="horizontal">
 
-        <EditText
+        <AutoCompleteTextView
             android:id="@+id/editLocalidad"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:hint="Pais/Departamento/pais"
-            />
+            android:hint="Pais/Departamento/pais" />
 
         <Button
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="+"
+            android:onClick="onClick"
+
             />
+
     </LinearLayout>
 
     <TextView
@@ -137,10 +142,7 @@
         android:layout_height="wrap_content"
         android:text="Guardar"
         android:textSize="10dp"
-        android:textStyle="bold"
-        />
-
-
+        android:textStyle="bold" />
 
 
 </LinearLayout>
