@@ -123,7 +123,6 @@ public class RegistroUsuarioActivity extends AppCompatActivity {
 
 
     }
-
     public static String[] Localidad = {
             "Colombia/Antioquia/Medellin",
             "Colombia/Antioquea/Envigado",
@@ -137,6 +136,9 @@ public class RegistroUsuarioActivity extends AppCompatActivity {
             "Colombia/Valle/Cali"
 
     };
+
+
+
 
 }
 

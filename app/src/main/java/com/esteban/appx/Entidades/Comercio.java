@@ -5,15 +5,12 @@ import java.io.Serializable;
 public class Comercio implements Serializable {
     private String email;
     private String password;
-    private int nit;
+    private String nit;
     private String razonSocial;
-    private String tipoProductos;
-    private String ciudad;
-    private String departamento;
-    private String Pais;
+
     private boolean estado;
 
-    public Comercio(String email, String password, int nit, String razonSocial, String tipoProductos, String ciudad, String departamento, String pais, boolean estado) {
+    public Comercio(String email, String password, String nit, String razonSocial, boolean estado) {
 
         this.email = email;
         this.password = password;
@@ -38,11 +35,11 @@ public class Comercio implements Serializable {
         this.password = password;
     }
 
-    public int getNit() {
+    public String getNit() {
         return nit;
     }
 
-    public void setNit(int nit) {
+    public void setNit(String nit) {
         this.nit = nit;
     }
 
@@ -54,37 +51,6 @@ public class Comercio implements Serializable {
         this.razonSocial = razonSocial;
     }
 
-    public String getTipoProductos() {
-        return tipoProductos;
-    }
-
-    public void setTipoProductos(String tipoProductos) {
-        this.tipoProductos = tipoProductos;
-    }
-
-    public String getCiudad() {
-        return ciudad;
-    }
-
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
-    }
-
-    public String getDepartamento() {
-        return departamento;
-    }
-
-    public void setDepartamento(String departamento) {
-        this.departamento = departamento;
-    }
-
-    public String getPais() {
-        return Pais;
-    }
-
-    public void setPais(String pais) {
-        Pais = pais;
-    }
 
     public boolean isEstado() {
         return estado;

@@ -33,10 +33,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        campoUser = (EditText)findViewById(R.id.editTextUser);
-        campoPassword = (EditText)findViewById(R.id.editTextPassword);
+        campoUser = (EditText) findViewById(R.id.editTextUser);
+        campoPassword = (EditText) findViewById(R.id.editTextPassword);
 
-       conn = new conexionSQLiteHelper(getApplicationContext(), "bd_aplicacionx", null, 1);
+        conn = new conexionSQLiteHelper(getApplicationContext(), "bd_aplicacionx", null, 1);
     }
 
     public void onClick(View view) {
@@ -44,22 +44,24 @@ public class MainActivity extends AppCompatActivity {
 
         switch (view.getId()) {
             case R.id.buttonIngresar:
-                SQLiteDatabase db=conn.getReadableDatabase();
-                String[]parametros = {campoUser.getText().toString(), campoPassword.getText().toString()};
-                String[]campos ={Utilidades.CAMPO_EMAIL, Utilidades.CAMPO_PASSWORD};
-                Cursor mcursor = db.query("usuario", campos,"email = '"+ parametros[0]+"'"+
-                                " AND password = '"+parametros[1]+"'",null,null,null,null );
-                try {
-                    if ( mcursor.moveToFirst()){
-                        Intent intent = new Intent(MainActivity.this,IndexActiviy.class);
-                        startActivity(intent);
-                        //Log.i("dES", mcursor.getString(1));
+                SQLiteDatabase db = conn.getReadableDatabase();
+                String[] parametros = {campoUser.getText().toString(), campoPassword.getText().toString()};
+                String[] campos = {Utilidades.CAMPO_EMAIL, Utilidades.CAMPO_PASSWORD};
+                Cursor mcursor = db.query("usuario", campos, "email = '" + parametros[0] + "'" +
+                        " AND password = '" + parametros[1] + "'", null, null, null, null);
 
-                    }else{
-                        Toast.makeText(getApplicationContext(),"El documento no existe",Toast.LENGTH_LONG).show();
+
+
+                try {
+                    if (mcursor.moveToFirst()) {
+                        Intent intent = new Intent(MainActivity.this, IndexActiviy.class);
+                        startActivity(intent);
+                        Log.i("dES", mcursor.getString(1));
+                    } else {
+                        Toast.makeText(getApplicationContext(), "El documento no existe", Toast.LENGTH_LONG).show();
                     }
 
-                }catch (SQLException e){
+                } catch (SQLException e) {
                     e.printStackTrace();
 
                 }
@@ -72,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 builder.setPositiveButton("Comercio", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(MainActivity.this,RegistroComercioActivity.class);
+                        Intent intent = new Intent(MainActivity.this, RegistroComercioActivity.class);
                         startActivity(intent);
                     }
 
@@ -80,8 +82,8 @@ public class MainActivity extends AppCompatActivity {
                 builder.setNegativeButton("Usuario", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                      Intent intent = new Intent(MainActivity.this,RegistroUsuarioActivity.class);
-                      startActivity(intent);
+                        Intent intent = new Intent(MainActivity.this, RegistroUsuarioActivity.class);
+                        startActivity(intent);
                     }
                 });
                 Dialog dialog = builder.create();
@@ -90,13 +92,13 @@ public class MainActivity extends AppCompatActivity {
 
 
             case R.id.textRecuperarPassword:
-                Intent intent = new Intent(MainActivity.this,RecuperarContrasenaActivity.class);
+                Intent intent = new Intent(MainActivity.this, RecuperarContrasenaActivity.class);
                 startActivity(intent);
                 break;
 
         }
 
-        if(myintent!=null) {
+        if (myintent != null) {
             startActivity(myintent);
 
         }

@@ -19,17 +19,18 @@ public class Utilidades {
 
 
     //Crear comercio
+
     public static final String TABLA_COMERCIO="comercio";
-    public static final String CAMPO_EMAIL_COMERCIO="email";
-    public static final String CAMPO_PASSWORD_COMERCIO="password";
     public static final String CAMPO_NIT="nit";
     public static final String CAMPO_RAZONSOCIAL="razonSocial";
+    public static final String CAMPO_EMAIL_COMERCIO="email";
+    public static final String CAMPO_PASSWORD_COMERCIO="password";
     public static final String CAMPO_ESTADO="estado";
 
 
     public static String CREAR_TABLA_COMERCIO = "CREATE TABLE "+
-            "" + TABLA_COMERCIO + " ("+CAMPO_EMAIL_COMERCIO+" TEXT, "+CAMPO_PASSWORD_COMERCIO+" TEXT, "+CAMPO_NIT+" INTEGER, "
-            +CAMPO_RAZONSOCIAL+" TEXT, "+CAMPO_ESTADO+" BOOLEAN) ";
+            "" + TABLA_COMERCIO + " ("+CAMPO_NIT+" TEXT, "+CAMPO_RAZONSOCIAL+" TEXT, "+CAMPO_EMAIL_COMERCIO+" TEXT, "
+            +CAMPO_PASSWORD_COMERCIO+" TEXT, "+CAMPO_ESTADO+" BOOLEAN) ";
 
 
 
