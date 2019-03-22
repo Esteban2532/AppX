@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginBottom="20dp"
+    android:orientation="vertical"
+    tools:context=".Fragments.AgregarOfertaFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MODULO DE OFERTAS"
+        android:textAlignment="center"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:paddingBottom="40dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:hint="LOCALES" />
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:textSize="20dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:hint="CENTROS COMERCIALES" />
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:textSize="20dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:hint="LOCALIDAD" />
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:textSize="20dp" />
+
+
+    </LinearLayout>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="DECUENTO DE OFERTA" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:hint="Descripcion de la oferta"
+        android:inputType="textMultiLine"
+        android:maxLength="100" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:textSize="20dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Adjunte la Foto" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="GUARDAR"
+        />
+
+
+</LinearLayout>

@@ -1,7 +1,8 @@
 package com.esteban.appx;
 
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.Fragment;;
 import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -13,8 +14,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.esteban.appx.Fragments.AgregarOfertaFragment;
+import com.esteban.appx.Fragments.CentroComercialFragment;
+import com.esteban.appx.Fragments.LocalidadFragment;
+import com.esteban.appx.Fragments.OfertasFragment;
+import com.esteban.appx.Fragments.TipoProductoFragment;
+
+
 public class ModuloComercio extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, AgregarOfertaFragment.OnFragmentInteractionListener,
+        CentroComercialFragment.OnFragmentInteractionListener, LocalidadFragment.OnFragmentInteractionListener,
+        OfertasFragment.OnFragmentInteractionListener, TipoProductoFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,20 +33,14 @@ public class ModuloComercio extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        Fragment fragment = new OfertasFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.content_modulo_comercio, fragment).commit();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -80,22 +84,43 @@ public class ModuloComercio extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        Fragment miFragment = null;
+        boolean fragmentSeleccionado = false;
 
-        } else if (id == R.id.nav_slideshow) {
+        if (id == R.id.ofertas) {
+            miFragment = new OfertasFragment();
+            fragmentSeleccionado = true;
 
-        } else if (id == R.id.nav_manage) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nueva_oferta) {
+            miFragment = new AgregarOfertaFragment();
+            fragmentSeleccionado = true;
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.productos) {
+            miFragment = new TipoProductoFragment();
+            fragmentSeleccionado = true;
 
+        } else if (id == R.id.centro) {
+            miFragment = new CentroComercialFragment();
+            fragmentSeleccionado = true;
+
+        } else if (id == R.id.localidad) {
+            miFragment = new LocalidadFragment();
+            fragmentSeleccionado = true;
+
+        }
+        //Reemplazar el fragmente que esta activo
+        if (fragmentSeleccionado){
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_modulo_comercio, miFragment).commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }

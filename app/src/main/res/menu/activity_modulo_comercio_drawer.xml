@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="navigation_view">
+    tools:showIn="Operaciones">
 
     <group android:checkableBehavior="single">
+
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
-        <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/ofertas"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:title="Ofertas"/>
+
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/nueva_oferta"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Agregar oferta" />
+
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Configuraciones">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
+                android:id="@+id/productos"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:title="Tipos de Productos" />
+            <item
+                android:id="@+id/centro"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Centros Comerciales" />
+            <item
+                android:id="@+id/localidad"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Localidades" />
+
         </menu>
     </item>
 

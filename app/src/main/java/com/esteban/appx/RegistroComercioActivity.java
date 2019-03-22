@@ -73,7 +73,7 @@ public class RegistroComercioActivity extends AppCompatActivity {
     }
 
     private void RegistrarComercio() {
-        conn = new conexionSQLiteHelper(getApplicationContext(), "bd_aplicationx", null, 1);
+        conn = new conexionSQLiteHelper(getApplicationContext(), "bd_aplicacionx", null, 1);
         SQLiteDatabase db = conn.getReadableDatabase();
 
         String[] parametros = {nitEmpresa.getText().toString()};
@@ -89,7 +89,7 @@ public class RegistroComercioActivity extends AppCompatActivity {
                 db.close();
 
             } else {
-                conn = new conexionSQLiteHelper(getApplicationContext(), "bd_aplicationx", null, 1);
+                conn = new conexionSQLiteHelper(getApplicationContext(), "bd_aplicacionx", null, 1);
                 SQLiteDatabase db1 = conn.getWritableDatabase();
                 ContentValues values = new ContentValues();
 

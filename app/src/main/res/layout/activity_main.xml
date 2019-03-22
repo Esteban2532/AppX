@@ -4,33 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="40dp"
-    android:paddingBottom="10dp"
-    android:paddingRight="20dp"
-    android:paddingLeft="20dp"
-    android:orientation="vertical"
     android:background="#A4FFFB "
+    android:orientation="vertical"
+    android:paddingLeft="20dp"
+    android:paddingTop="40dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="10dp"
     tools:context=".MainActivity">
 
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="AppX"
         android:textSize="80dp"
         android:textStyle="bold"
-        android:gravity="center"
-        />
+        android:paddingBottom="40dp"/>
+
+
+    <Spinner
+        android:id="@+id/idSeleccion"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:elevation="2.5dp"
+
+       />
 
 
     <EditText
         android:id="@+id/editTextUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ingrese su correo electronico"
         android:layout_marginTop="20dp"
         android:elevation="2.5dp"
+        android:hint="Ingrese su usuario"
         android:textAlignment="center"
+
 
         />
 
@@ -39,21 +49,20 @@
         android:id="@+id/editTextPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ingrese su contraseña"
         android:layout_marginTop="20dp"
-        android:inputType="textPassword"
-        android:textAlignment="center"
         android:elevation="2.5dp"
-        />
+        android:hint="Ingrese su contraseña"
+        android:inputType="textPassword"
+        android:textAlignment="center" />
 
 
     <Button
         android:id="@+id/buttonIngresar"
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ingresar"
+        android:layout_marginTop="10dp"
         android:onClick="onClick"
+        android:text="Ingresar"
 
         />
 
@@ -61,10 +70,10 @@
         android:id="@+id/textRecuperarPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Restablecer contraseña"
-        android:onClick="onClick"
-        android:textColor="#2C1CED"
         android:gravity="left"
+        android:onClick="onClick"
+        android:text="Restablecer contraseña"
+        android:textColor="#2C1CED"
         android:textSize="20dp"
 
         />
@@ -79,9 +88,6 @@
         android:text="Registro"
         android:textColor="#2C1CED"
         android:textSize="20dp" />
-
-
-
 
 
 </LinearLayout>
